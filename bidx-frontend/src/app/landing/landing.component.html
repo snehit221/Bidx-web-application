@@ -1,0 +1,20 @@
+<!-- Shahroz Ahmad -->
+
+<!-- <h1><b>BidX - Buy and Sell</b></h1> -->
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+<div class="slider-container">
+  <app-image-slider [slides]="slides"></app-image-slider>
+</div>
+
+<div style="margin: 50px;">
+  <h1>Upcoming Auctions</h1>
+  <app-card-view [products]="upcomingAuctions"></app-card-view>
+</div>
+
+<div style="margin: 50px;">
+  <h1>Top Items You Might Like</h1>
+  <app-card-view [products]="topItems"></app-card-view>
+</div>
+
+<app-footer></app-footer>

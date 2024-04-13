@@ -1,0 +1,18 @@
+<!-- wishlist-list.component.html -->
+
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+
+<div class="notification-container">
+  <div class="notifications" *ngIf="products && products.length > 0">
+    <div class="notification-item" *ngFor="let product of products">
+      <div class="product-card">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <a class="view-details" [routerLink]="['/product-detail', product.id]">View Details</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

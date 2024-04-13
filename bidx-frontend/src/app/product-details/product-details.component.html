@@ -1,0 +1,42 @@
+<!-- /* @author - snehitroda */ -->
+
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+
+<div>
+    <button class="back-button" (click)="backToResults()"> Back to results</button>
+</div>
+
+<div *ngIf="productInfo" class="product-container">
+
+    <div class="preview-images">
+        <div *ngFor="let imageUrl of imageUrls; let i = index" class="preview-image" (click)="selectImage(i)">
+            <img [src]="imageUrl" alt="Preview image">
+        </div>
+    </div>
+
+
+    <div class="product-image-container">
+        <img [src]=" selectedImage ||createImageUrl(productInfo.images) || '/assets/products/iphone.jpg'"
+            alt="Product image" class="product-image">
+    </div>
+
+
+    <div class="product-details">
+        <h1>{{ productInfo.name }}</h1>
+        <h2><strong>${{ productInfo.initialBid }} </strong></h2>
+        <p>Description: {{ productInfo.description }}</p>
+        <p>Category: {{ productInfo.category }}</p>
+        <p>City: {{ productInfo.city }}</p>
+        <p>Province: {{ productInfo.province }}</p>
+        <p>Item Value: ${{ productInfo.itemValue }}</p>
+        <!-- <p>Sold by {{ productInfo.user?.name || 'Unknown Seller' }}</p> -->
+        <button *ngIf="!isSeller" class="btn-primary" (click)="placeBid(productInfo)">Place Bid</button>
+        
+        <button *ngIf="!isSeller" class="btn-primary" (click)="toggleWishlist(productInfo.id)">
+            {{ isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist' }}
+          </button>
+    </div>
+</div>
+
+<app-footer class="footer"></app-footer>

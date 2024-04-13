@@ -1,0 +1,17 @@
+<!-- @author - KaushikChanabhaiDhola -->
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+
+<div class="notification-container">
+    <div class="notification-header">
+        <h1 class="heading">Notifications</h1>
+      </div>
+    <div class="notifications" *ngIf="products">
+      <div class="notification-item" *ngFor="let product of products">
+          <p><strong>{{ product.name }}</strong></p>
+          <p>{{ product.description }}</p>
+          <a class="view-details" [routerLink]="['/product-detail', product.id]">View Details</a>
+      </div>
+    </div>
+  </div>
+<app-footer>

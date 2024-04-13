@@ -1,0 +1,24 @@
+/* faq.component.css */
+.faq-item {
+    margin-bottom: 20px;
+  }
+  
+  .faq-item h3 {
+    font-size: 20px;
+  }
+  
+  .faq-item p {
+    margin-top: 5px;
+  }
+  .faq-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333; /* Dark gray color */
+    margin-bottom: 20px; /* Add some spacing below the title */
+    text-align: center; /* Center-align the title */
+    text-transform: uppercase; /* Convert text to uppercase */
+  }
+  .faq-item {
+    margin-left: 50px;
+    align-items: center;
+  }

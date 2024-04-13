@@ -1,0 +1,237 @@
+<!-- /* Author: Ubaidullah */ -->
+
+<div class="page-container">
+  <app-header-bar></app-header-bar>
+  <app-category-bar></app-category-bar>
+
+  <div class="payment-and-orders-container content-wrap">
+    <div class="form-and-payment-container">
+      <form
+        [formGroup]="billingForm"
+        (ngSubmit)="onSubmit()"
+        class="billing-details-form"
+      >
+        <div class="billing-details-container">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">Your first name:</label>
+              <input type="text" id="firstName" formControlName="firstName" />
+              <div
+                *ngIf="
+                  billingForm.get('firstName')?.invalid &&
+                  billingForm.get('firstName')?.touched
+                "
+                class="error"
+              >
+                First name is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Your last name:</label>
+              <input type="text" id="lastName" formControlName="lastName" />
+              <div
+                *ngIf="
+                  billingForm.get('lastName')?.invalid &&
+                  billingForm.get('lastName')?.touched
+                "
+                class="error"
+              >
+                Last name is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="streetAddress">Street Address:</label>
+            <input
+              type="text"
+              id="streetAddress"
+              formControlName="streetAddress"
+            />
+            <div
+              *ngIf="
+                billingForm.get('streetAddress')?.invalid &&
+                billingForm.get('streetAddress')?.touched
+              "
+              class="error"
+            >
+              Street Address is required.
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="state">State:</label>
+              <input type="text" id="state" formControlName="state" />
+              <div
+                *ngIf="
+                  billingForm.get('state')?.invalid &&
+                  billingForm.get('state')?.touched
+                "
+                class="error"
+              >
+                State is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input type="text" id="city" formControlName="city" />
+              <div
+                *ngIf="
+                  billingForm.get('city')?.invalid &&
+                  billingForm.get('city')?.touched
+                "
+                class="error"
+              >
+                City is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="zipcode">Zipcode:</label>
+              <input type="text" id="zipcode" formControlName="zipcode" />
+              <div
+                *ngIf="
+                  billingForm.get('zipcode')?.invalid &&
+                  billingForm.get('zipcode')?.touched
+                "
+                class="error"
+              >
+                Zipcode is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="orderNotes">Order notes (optional):</label>
+            <textarea
+              id="orderNotes"
+              formControlName="orderNotes"
+              rows="4"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="payment-options-container">
+          <div class="payment-options">
+            <h2>Payment Options</h2>
+            <div class="payment-option">
+              <input
+                type="radio"
+                id="debitCreditCard"
+                formControlName="paymentMethod"
+                value="Debit/Credit Card"
+              />
+              <label for="debitCreditCard">Debit/Credit Card</label>
+            </div>
+            <div
+              *ngIf="
+                billingForm.get('paymentMethod')?.invalid &&
+                billingForm.get('paymentMethod')?.touched
+              "
+              class="error"
+            >
+              Please select a payment method.
+            </div>
+          </div>
+        </div>
+        <div
+          *ngIf="
+            billingForm.get('paymentMethod')?.value === 'Debit/Credit Card'
+          "
+        >
+          <div class="card-details-container">
+            <div class="form-group">
+              <label for="cardNumber">Card Number:</label>
+              <input type="text" id="cardNumber" formControlName="cardNumber" />
+              <div
+                *ngIf="
+                  billingForm.get('cardNumber')?.invalid &&
+                  billingForm.get('cardNumber')?.touched
+                "
+                class="error"
+              >
+                Please enter a valid card number.
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expirationDate">Expiration Date:</label>
+                <input
+                  type="text"
+                  id="expirationDate"
+                  placeholder="mm/yy"
+                  formControlName="expirationDate"
+                  appExpirationDateFormat
+                />
+                <div
+                  *ngIf="
+                    billingForm.get('expirationDate')?.invalid &&
+                    billingForm.get('expirationDate')?.touched
+                  "
+                  class="error"
+                >
+                  Please enter a valid expiration date.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" formControlName="cvv" />
+                <div
+                  *ngIf="
+                    billingForm.get('cvv')?.invalid &&
+                    billingForm.get('cvv')?.touched
+                  "
+                  class="error"
+                >
+                  Please enter a valid CVV.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cardholderName">Cardholder Name:</label>
+              <input
+                type="text"
+                id="cardholderName"
+                formControlName="cardholderName"
+              />
+              <div
+                *ngIf="
+                  billingForm.get('cardholderName')?.invalid &&
+                  billingForm.get('cardholderName')?.touched
+                "
+                class="error"
+              >
+                Please enter the cardholder's name.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="submit-button-container">
+          <button type="submit">Complete Order</button>
+        </div>
+      </form>
+    </div>
+    <div class="order-details">
+      <h2>Your Order</h2>
+      <div class="order-item">
+        <span>{{ product?.name }}</span>
+        <span>${{ bidAmount }}</span>
+      </div>
+      <div class="order-item">
+        <span>Subtotal</span>
+        <span>${{ bidAmount }}</span>
+      </div>
+      <div class="order-item">
+        <span>Shipping</span>
+        <span>Free Shipping</span>
+      </div>
+      <div class="order-item">
+        <span>Total</span>
+        <span>${{ bidAmount }}</span>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

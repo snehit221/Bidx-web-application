@@ -1,0 +1,24 @@
+<div class="category-container">
+  <mat-toolbar color="primary" class="category-toolbar hide-on-mobile">
+    <div class="category-scrollable">
+      <button mat-button *ngFor="let category of categories">
+        {{ category }}
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-toolbar
+    color="primary"
+    class="mobile-category-menu hide-on-desktop"
+    *ngIf="isMobile"
+  >
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngFor="let category of categories">
+        {{ category }}
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+</div>

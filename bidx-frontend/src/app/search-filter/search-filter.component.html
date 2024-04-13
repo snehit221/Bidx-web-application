@@ -1,0 +1,37 @@
+<!-- /* @author - snehitroda */ -->
+
+<div class="filters-container">
+  <div class="filters-header">
+    <div class="filters-heading">Filters</div>
+    <button class="clear-button" (click)="clearAll()">Clear All</button>
+  </div>
+  <br>
+  <div class="filters-line"></div>
+  
+  <div class="filter-section">
+    <h3>Price</h3>
+    <div class="filter-options">
+      <label><input type="radio" name="Bidding Price" value="DESC" (change)="onFilterChange('price', $event)" [checked]="selectedPrice === 'DESC'"> High to Low</label>
+      <label><input type="radio" name="Bidding Price" value="ASC" (change)="onFilterChange('price', $event)" [checked]="selectedPrice === 'ASC'"> Low to High</label>
+    </div>
+  </div>
+  
+  <div class="filter-section">
+    <h3>Category</h3>
+    <div class="filter-options">
+      <label><input type="radio" name="category" value="Tech" (change)="onFilterChange('category', $event)" [checked]="selectedCategory === 'Tech'"> Tech</label>
+      <label><input type="radio" name="category" value="Entertainment" (change)="onFilterChange('category', $event)" [checked]="selectedCategory === 'Entertainment'"> Entertainment</label>
+      <label><input type="radio" name="category" value="Furniture" (change)="onFilterChange('category', $event)" [checked]="selectedCategory === 'Furniture'"> Furniture</label>
+      <label><input type="radio" name="category" value="Book" (change)="onFilterChange('category', $event)" [checked]="selectedCategory === 'Book'"> Book</label>
+    </div>
+  </div>
+  
+  <div class="filter-section">
+    <h3>Condition</h3>
+    <div class="filter-options">
+      <label><input type="radio" name="condition" value="new" (change)="onFilterChange('condition', $event)" [checked]="selectedCondition === 'new'"> New</label>
+      <label><input type="radio" name="condition" value="used" (change)="onFilterChange('condition', $event)" [checked]="selectedCondition === 'used'"> Used</label>
+      <label><input type="radio" name="condition" value="refurbished" (change)="onFilterChange('condition', $event)" [checked]="selectedCondition === 'refurbished'"> Refurbished</label>
+    </div>
+  </div>  
+</div>

@@ -1,0 +1,19 @@
+<!-- @author - KaushikChanabhaiDhola -->
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+
+<div class="products-container">
+  <h1 class="heading">Your Listed Products</h1>
+  <div class="product-item" *ngFor="let product of products">
+    <div class="product-details">
+      <p><strong>Product Name:</strong> {{ product.name }}</p>
+      <p><strong>Listed Date:</strong>{{ formatDate(product.listedDate) }}</p>
+      <p><strong>Initial Bid Price:</strong> ${{ product.initialBid }}</p>
+    </div>
+    <div class="product-actions">
+      <button class="btn btn-modify" (click)="modifyProduct(product)">Modify</button>
+      <button class="btn btn-delete" (click)="deleteProduct(product)">Delete</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

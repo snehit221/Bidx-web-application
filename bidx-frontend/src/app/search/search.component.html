@@ -1,0 +1,54 @@
+<!-- /* @author - snehitroda */ -->
+
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+
+<div class="container">
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <app-search-filter (filterChanged)="applySearchQFilters($event)"
+      (clearAllFilters)="clearAllFilters()"></app-search-filter>
+    <!-- (filterChanged)="applySearchQFilters($event)" (clearAllFilters)="clearAllFilters()" -->
+    <!-- Product display... -->
+  </div>
+
+  <!-- Search Results Section -->
+  <div class="results-section">
+    <div class="products-container">
+      <div *ngFor="let product of products" class="product">
+        <!-- if image path DNE exist set it to - > /assets/products/iphone.jpg -->
+        <img [src]="createImageUrl(product.images) || '/assets/products/iphone.jpg'" alt="Product image">
+
+        <!-- Display product details -->
+        <div class="product-details">
+          <a class="product-name" (click)="navigateToProductDetails(product.id)">{{ product.name }}</a>
+          <!-- <a [routerLink]="['/product-detail', product.id]">
+            {{product.name}}
+          </a> -->
+        <p>${{ product.initialBid }}</p>
+          <p>Category: {{ product.category }}</p>
+
+          <!-- <p>Condition: {{ product.condition }}</p> -->
+          <!-- <p>City: {{ product.city }}</p>
+          <p>Province: {{ product.province }}</p>
+          <p>Seller: {{ product.user?.name || 'Unknown Seller' }}</p>  -->
+
+          <!-- Add a button for bidding -->
+          <button *ngIf="!isSeller" (click)="placeBid(product)">Place Bid</button>
+        </div>
+      </div>
+      <div *ngIf="isNoValidProductFound()">
+        <p>Sorry, no matching products found, please try a different search term.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination controls -->
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="searchFilters.page === 0">Previous Page</button>
+  <span>Page {{ searchFilters.page + 1 }}</span>
+  <button (click)="nextPage()" [disabled]="products.length === 0">Next Page</button>
+</div>
+
+<app-footer class="footer"></app-footer>

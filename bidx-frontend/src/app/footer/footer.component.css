@@ -1,0 +1,29 @@
+/* footer.component.css */
+.footer .mat-toolbar.mat-primary {
+  background-color: #1a237e; /* Dark blue background */
+}
+
+.footer {
+  width: 100%;
+  text-align: center; /* Center the content */
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0; /* Add some padding */
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: white; /* White text for visibility */
+}
+
+.social-links a mat-icon {
+  fill: white; /* Explicitly set the SVG fill to white */
+}
+
+.share-bar {
+  display: flex;
+  justify-content: space-around;
+}

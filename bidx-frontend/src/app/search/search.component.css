@@ -1,0 +1,135 @@
+/* @author - snehitroda */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Show three products per row */
+  gap: 20px;
+  /* Gap between products */
+}
+
+@media (max-width: 768px) {
+  .products-container {
+    grid-template-columns: repeat(2, 1fr);
+    /* Show two products per row on smaller screens */
+  }
+}
+
+
+.container {
+  display: flex;
+  min-height: 100vh;
+
+}
+
+.filter-section {
+  width: 15%;
+  /* Can be Adjusted */
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.results-section {
+  flex: 1;
+  margin-top: 20px;
+}
+
+/* .products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+} */
+
+
+/* .products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+} */
+
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+  height: 150px;
+  /* Set a fixed height for all images */
+  object-fit: cover;
+  /* Ensure images maintain aspect ratio */
+}
+
+.product-details {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.product-details h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: #333;
+  /* Product name color */
+}
+
+.product-details p {
+  margin: 5px 0;
+  color: #777;
+  /* Product details color */
+}
+
+.product-details button {
+  background-color: #1a237e;
+  border-color: #1a237e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.product-name {
+  color: blue; /* Set the color of the link */
+  text-decoration: underline; /* Add underline to indicate it's a link */
+  cursor: pointer; /* Change cursor to pointer on hover to indicate it's clickable */
+}
+
+.product-details button:hover {
+  background-color: #2c3e50;
+  /* Hover background color */
+}
+
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+  .products-container {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+
+  .product img {
+    height: auto;
+    /* Allow images to scale with width on smaller screens */
+  }
+}
+
+.footer {
+  width: 100%;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  background-color: #fff;
+  /* Blue background */
+  color: #3498db;
+  /* White text */
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.pagination span {
+  padding: 8px 16px;
+}

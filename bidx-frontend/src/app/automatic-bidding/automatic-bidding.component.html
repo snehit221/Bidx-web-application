@@ -1,0 +1,100 @@
+<!-- Shahroz Ahmad -->
+
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+
+<div class="floating-error-button">
+  <button mat-fab>
+    <mat-icon>error</mat-icon>
+  </button>
+  <div>Outbids (1)</div>
+</div>
+<mat-grid-list cols="2" rowHeight="2:1.5">
+  <mat-grid-tile
+    ><img src="https://placehold.co/600x400?text=Item+Image+2"
+  /></mat-grid-tile>
+  <mat-grid-tile
+    ><ul>
+      <li><strong>Item Name: </strong>Dummy Item 2</li>
+      <li>
+        <strong>Item Description: </strong> et dot,lore magna aliqua.
+        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        Lorem ipsum dolor sit ame
+      </li>
+      <li><strong>Item Value: </strong> $4,800</li>
+      <li><strong>Minimum Bidding Value: </strong> $1,200</li>
+      <li><strong>Time Left for Auction End: </strong> 1 week</li>
+    </ul></mat-grid-tile
+  >
+  <mat-grid-tile>
+    <div style="display: flex; flex-direction: column">
+      <div>
+        <div><strong>Your Current Bid: </strong>$8,000</div>
+        <div>
+          <form>
+            <mat-form-field>
+              <input matInput type="number" min="10" required />
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+      <div>
+        <div><strong>Your Maximum Bid: </strong>$8,000</div>
+        <div>
+          <form [formGroup]="bidAmountValidations">
+            <mat-form-field>
+              <input
+                matInput
+                type="number"
+                min="10"
+                formControlName="bidAmount"
+              />
+              <mat-error *ngIf="bidAmountValidations.invalid">
+                It is required.
+              </mat-error>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+      <div>
+        <div><strong>Bid Increment: </strong>$100</div>
+        <div>
+          <form>
+            <mat-form-field>
+              <input matInput type="number" min="10" required />
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+      <button mat-raised-button color="primary">Place Bid</button>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="bid-history-table">
+      <h2>Bid History</h2>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="userId">
+          <th mat-header-cell *matHeaderCellDef>User Id</th>
+          <td mat-cell *matCellDef="let element">{{ element.userId }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="bidAmount">
+          <th mat-header-cell *matHeaderCellDef>Bid Amount</th>
+          <td mat-cell *matCellDef="let element">
+            {{ "$" + element.bidAmount }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bidDate">
+          <th mat-header-cell *matHeaderCellDef>Date of Bid</th>
+          <td mat-cell *matCellDef="let element">{{ element.bidDate }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<app-footer class="footer"></app-footer>

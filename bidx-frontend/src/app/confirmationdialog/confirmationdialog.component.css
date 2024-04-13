@@ -1,0 +1,41 @@
+/* @author - KaushikChanabhaiDhola */
+.confirmation-dialog {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .confirmation-dialog-title {
+    color: #1a237e;
+    font-family: "Poppins", sans-serif;
+    font-weight: bolder;
+    margin-bottom: 10px;
+  }
+  
+  .confirmation-dialog-message {
+    color: #555;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .confirmation-dialog-button {
+    margin-left: 10px;
+    font-family: "Poppins", sans-serif;
+    padding: 8px 16px;
+    background-color: #1a237e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirmation-dialog-button:hover {
+    background-color: grey;
+  }
+  

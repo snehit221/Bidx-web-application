@@ -1,0 +1,156 @@
+<!-- /* Author: Ubaidullah */ -->
+
+<div class="page-container">
+  <app-header-bar></app-header-bar>
+  <app-category-bar></app-category-bar>
+
+  <div class="order-details-container content-wrap">
+    <div class="order-header">
+      <h2>Order Details</h2>
+      <div>
+        <span>Ordered on {{ this.order?.orderDate | date : "MMMM d, y" }}</span>
+        <span>Order # {{ this.order?.id }}</span>
+      </div>
+      <span>Status: {{ this.order?.status }}</span>
+    </div>
+    <hr />
+    <div class="shipping-and-order">
+      <div class="shipping-details">
+        <h3>Shipping Details</h3>
+        <p>
+          {{ this.order?.billingDetails?.firstName }}
+          {{ this.order?.billingDetails?.lastName }}
+        </p>
+        <p>{{ this.order?.billingDetails?.streetAddress }}</p>
+        <p>
+          {{ this.order?.billingDetails?.city }},
+          {{ this.order?.billingDetails?.state }}
+          {{ this.order?.billingDetails?.zipcode }}
+        </p>
+        <p>Canada</p>
+      </div>
+
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div>
+          <span>Item Subtotal</span>
+          <span>${{ this.order?.amount }}</span>
+        </div>
+        <div>
+          <span>Shipping & Handling</span>
+          <span>$0.00</span>
+        </div>
+        <div>
+          <span>Total</span>
+          <span>${{ this.order?.amount }}</span>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="product-details">
+      <img
+        [src]="
+          createImageUrl(this.order?.product?.images) ||
+          '/assets/products/iphone.jpg'
+        "
+        alt="Product image"
+      />
+
+      <div>
+        <p>
+          {{ this.order?.product?.name }}
+        </p>
+      </div>
+    </div>
+
+    <hr />
+
+    <div *ngIf="order?.status === 'CANCELED'">
+      <h3>Cancellation Details</h3>
+      <p>Reason: {{ order?.cancellationReason }}</p>
+      <p>Comment: {{ order?.cancellationComment }}</p>
+    </div>
+
+    <div>
+      <form [formGroup]="statusForm" (ngSubmit)="submitStatusChange()">
+        <div class="form-group">
+          <label for="orderStatus">Change Order Status:</label>
+          <select id="orderStatus" formControlName="orderStatus">
+            <option value="">Select a Status</option>
+            <option value="PENDING">Pending</option>
+            <option value="PROCESSED">Processed</option>
+            <option value="SHIPPED">Shipped</option>
+            <option value="DELIVERED">Delivered</option>
+            <option value="CANCELED">Canceled</option>
+          </select>
+          <div
+            *ngIf="
+              statusForm.get('orderStatus')?.invalid &&
+              statusForm.get('orderStatus')?.touched
+            "
+            class="error"
+          >
+            Status is required.
+          </div>
+        </div>
+
+        <div
+          class="form-group"
+          *ngIf="statusForm.value.orderStatus === 'CANCELED'"
+        >
+          <label for="cancellationReason"
+            >Reason for cancellation (required):</label
+          >
+          <select id="cancellationReason" formControlName="cancellationReason">
+            <option value="">Select a Reason</option>
+            <option value="mistake">Order Created by Mistake</option>
+            <option value="changedMind">Changed My Mind</option>
+            <option value="foundBetterPrice">
+              Found a Better Price Elsewhere
+            </option>
+            <option value="shippingCost">Shipping Cost Too High</option>
+            <option value="longShipTime">Long Shipping Time</option>
+            <option value="duplicateOrder">Duplicate Order</option>
+            <option value="alternativeProduct">
+              Decided on an Alternative Product
+            </option>
+            <option value="other">Other</option>
+          </select>
+          <div
+            *ngIf="
+              statusForm.get('cancellationReason')?.invalid &&
+              statusForm.get('cancellationReason')?.touched
+            "
+            class="error"
+          >
+            Reason for cancellation is required.
+          </div>
+        </div>
+
+        <div
+          class="form-group"
+          *ngIf="statusForm.value.orderStatus === 'CANCELED'"
+        >
+          <label for="cancellationComment"
+            >Please tell us more about why you cancelled: (optional)</label
+          >
+          <textarea
+            id="cancellationComment"
+            formControlName="cancellationComment"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <div class="form-group form-button">
+          <button type="submit" class="status-change-button">
+            Update Status
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

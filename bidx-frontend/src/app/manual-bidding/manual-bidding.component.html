@@ -1,0 +1,137 @@
+<!-- Shahroz Ahmad -->
+
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile
+    ><img
+      style="height: 500px"
+      [src]="
+        createImageUrl(loadedProductData?.images) ||
+        '/assets/products/iphone.jpg'
+      "
+      alt="Product image"
+  /></mat-grid-tile>
+  <mat-grid-tile
+    ><ul>
+      <li><strong>Item Name: </strong>{{ loadedProductData?.name }}</li>
+      <li>
+        <strong>Item Description: </strong> {{ loadedProductData?.description }}
+      </li>
+      <li><strong>Item Value: </strong> ${{ loadedProductData?.itemValue }}</li>
+      <li>
+        <strong>Minimum Bidding Value: </strong> ${{
+          loadedProductData?.initialBid
+        }}
+      </li>
+      <li *ngIf="!hasAuctionEnded">
+        <strong>Time Left for Auction End: </strong> {{ auctionTimeLeft }}
+      </li>
+      <li *ngIf="hasAuctionEnded" style="color: red">
+        <strong>Auction has ended! </strong>
+      </li>
+      <li *ngIf="bidMessage.includes('order')" style="color: green">
+        {{ bidMessage }}
+      </li>
+      <li *ngIf="bidMessage.includes('Congratulations')" style="color: green">
+        {{ bidMessage }}
+        <a href="#" (click)="navigateToBillingDetailsPage($event)"
+          >Click here.</a
+        >
+      </li>
+      <li *ngIf="bidMessage.includes('Someone')" style="color: grey">
+        {{ bidMessage }}
+      </li>
+    </ul></mat-grid-tile
+  >
+  <mat-grid-tile>
+    <div style="display: flex; flex-direction: column">
+      <div style="margin-bottom: 10px">
+        <strong>Your Current Bid: </strong>
+        <span *ngIf="currentUserBid && currentUserBid.bidAmount; else noBid">{{
+          currentUserBid.bidAmount
+        }}</span>
+        <ng-template #noBid>No Active Bid</ng-template>
+      </div>
+      <div>
+        <form (submit)="placeBid($event)">
+          <mat-form-field>
+            <input
+              matInput
+              type="number"
+              min="10"
+              required
+              id="bidAmount"
+              name="bidAmount"
+              [(ngModel)]="currentInputBidAmount"
+            />
+          </mat-form-field>
+          <div>
+            <button
+              style="width: 100%"
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="
+                hasAuctionEnded ||
+                !currentInputBidAmount ||
+                currentInputBidAmount < loadedProductData?.initialBid ||
+                (currentUserBid && currentUserBid.bidAmount) != null
+              "
+            >
+              Place Bid
+            </button>
+          </div>
+          <div
+            *ngIf="currentUserBid && currentUserBid.bidAmount"
+            style="color: green; margin-top: 8px"
+          >
+            Bid is placed!
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="bid-history-table">
+      <div style="display: flex">
+        <h2>Bid History</h2>
+        <mat-icon
+          style="cursor: pointer"
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="refresh"
+          (click)="refreshBids(loadedProductData.id)"
+        ></mat-icon>
+      </div>
+      <table mat-table [dataSource]="activeBids" class="mat-elevation-z8">
+        <ng-container matColumnDef="userId">
+          <th mat-header-cell *matHeaderCellDef>User Id</th>
+          <td mat-cell *matCellDef="let element">{{ element.userId }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="bidAmount">
+          <th mat-header-cell *matHeaderCellDef>Bid Amount</th>
+          <td mat-cell *matCellDef="let element">
+            {{ "$" + element.bidAmount }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bidDate">
+          <th mat-header-cell *matHeaderCellDef>Date/Time of Bid</th>
+          <td mat-cell *matCellDef="let element">{{ element.bidDate }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          [ngClass]="{ 'user-bid-row': row.userId === userId }"
+        ></tr>
+      </table>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<app-footer class="footer"></app-footer>

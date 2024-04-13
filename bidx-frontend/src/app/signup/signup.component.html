@@ -1,0 +1,77 @@
+<!-- @author - ParthGajera -->
+<app-header-bar></app-header-bar>
+<div class="signup-container">
+    <h1>Register</h1>
+    <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+      <div class="form-row">
+        <div class="form-group col">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" required ngModel name="firstName" #firstName="ngModel" placeholder="First Name">
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="error">
+            First name is required.
+          </div>
+        </div>
+        <div class="form-group col">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" required ngModel name="lastName" #lastName="ngModel" placeholder="Last Name">
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="error">
+            Last name is required.
+          </div>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" required ngModel name="username" #username="ngModel" placeholder="Username">
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error">
+          Username is required.
+        </div>
+      </div> -->
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" required ngModel name="email" #email="ngModel" placeholder="Email Address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors && email.errors['required']" class="error">Email is required.</div>
+          <div *ngIf="email.errors && email.errors['pattern']" class="error">Please enter a valid email address.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" required ngModel name="password" #password="ngModel" placeholder="Password">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
+          Password is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Re Enter Password</label>
+        <input type="password" class="form-control" id="confirmPassword" required ngModel name="confirmPassword" #confirmPassword="ngModel" placeholder="Re Enter Password">
+        <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="error">
+          Confirming password is required.
+        </div>
+        <div *ngIf="passwordMismatch" class="error">
+          Passwords do not match.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" id="role" required ngModel name="role" #role="ngModel">
+          <option value="" selected>Buyer or Seller</option>
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+        </select>
+        <div *ngIf="role.invalid && (role.dirty || role.touched)" class="error">
+          Selecting a role is required.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    <div *ngIf="successMessage" class="success-message">
+      <p>{{ successMessage }}</p>
+      <p><a routerLink="/login">Click here to Log In</a></p>
+    </div>
+    <div *ngIf="!successMessage">
+      <p style="text-align: center">Already a User? <a href="/login">Sign In</a></p>
+    </div>
+  </div>
+<app-footer class="footer"></app-footer>
+  
+  <!-- [disabled]="!signupForm.valid" -->

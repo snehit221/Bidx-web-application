@@ -1,0 +1,126 @@
+/* @author - KaushikChanabhaiDhola */
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.heading{
+  font-family: "Poppins", sans-serif;
+  color:#1a237e;
+  font-weight: bolder;
+}
+
+.products-container {
+  flex: 1;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #1a237e;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.product-details {
+  flex: 1;
+  font-family: "Poppins", sans-serif;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  border-color: #1a237e;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.btn-modify {
+  background-color: #2196F3;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.btn-modify {
+  padding: 10px 20px;
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-modify:hover {
+  background-color: grey;
+}
+
+.btn-delete {
+  padding: 10px 20px;
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background-color: grey;
+}
+@media (max-width: 768px) {
+  .products-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .products-container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .product-item {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .product-details {
+    margin-bottom: 10px;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,137 @@
+.signup-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .signup-container h1 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-row .col {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .form-row .col:last-child {
+    margin-right: 0;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #1a237e;
+    color: white;
+  }
+  
+  .btn-primary:disabled {
+    background-color: #ccc;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Continuing from the a:hover style */
+a:hover {
+    text-decoration: underline;
+  }
+  
+  /* General Body Styling for overall consistency with the wireframe */
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Additional Styling for Buttons and Form Inputs for a more polished look */
+  .form-control, .btn-primary {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Placeholder color for better contrast */
+  ::placeholder {
+    color: #aaa;
+  }
+  
+  /* Adjusting the last column in the form-row so it aligns well */
+  .form-row .col:last-child {
+    margin-right: 0;
+    margin-left: 10px; /* This ensures spacing is consistent around inputs */
+  }
+  
+  /* Ensure the select input matches other text inputs */
+  select.form-control {
+    appearance: none; /* To remove default styling of select dropdown */
+  }
+  
+  /* Styling for the sign-up button when it is enabled */
+  .btn-primary:not(:disabled) {
+    cursor: pointer;
+  }
+
+.error {
+    color: #a94442; /* red */
+    background-color: #f2dede; /* light red */
+    border-color: #ebccd1; /* red border */
+    padding: .5rem 1rem;
+    margin-top: .5rem;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+  }
+  
+  /* You may want to hide the error message by default and only show it when there is an error */
+  /* .error {
+    display: none;
+  } */
+  
+  /* When the form control is invalid and touched, show the error message */
+  .ng-touched.ng-invalid + .error {
+    display: block;
+  }
+
+.success-message {
+  color: #28a745; /* green */
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Continue with the rest of your styles... */
+
+  

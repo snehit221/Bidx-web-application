@@ -1,0 +1,12 @@
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+
+<div style="margin: 50px;">
+  <h1 class="faq-title">Frequently Asked Questions</h1>
+  <div *ngFor="let faqItem of faqData" class="faq-item">
+    <h3>{{ faqItem.question }}</h3>
+    <p>{{ faqItem.answer }}</p>
+  </div>
+</div>
+
+<app-footer></app-footer>

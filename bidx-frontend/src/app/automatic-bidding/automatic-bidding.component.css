@@ -1,0 +1,25 @@
+/* Shahroz Ahmad */
+
+.floating-error-button {
+  position: fixed;
+  top: 100px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-error-button > button {
+  border: none;
+  color: orange;
+  background: none;
+}
+
+mat-grid-list {
+  margin-top: 50px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.bid-history-table {
+  width: 500px;
+}

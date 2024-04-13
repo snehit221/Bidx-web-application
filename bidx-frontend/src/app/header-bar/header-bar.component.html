@@ -1,0 +1,180 @@
+<!-- /* @author - snehitroda */ -->
+<!-- @author - KaushikChanabhaiDhola -->
+
+<mat-toolbar class="custom-toolbar">
+  <mat-toolbar-row>
+    <div class="logo">
+      <h1 (click)="redirectToHome()"><b>BidX - Buy & Sell</b></h1>
+    </div>
+
+    <div class="search-bar">
+      <input
+        type="text"
+        matInput
+        placeholder="Search BidX..."
+        class="custom-search-input"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="navigateToSearch()"
+      />
+      <mat-icon class="mat-icon" (click)="navigateToSearch()">search</mat-icon>
+    </div>
+
+    <div class="login-buttons" *ngIf="!isSmallScreen">
+      <button
+        *ngIf="!isLoggedIn"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToContactUs()"
+      >
+        Contact Us
+      </button>
+      <button
+        *ngIf="!isLoggedIn"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToFaq()"
+      >
+        FAQ
+      </button>
+      <button
+        *ngIf="!isLoggedIn"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToLogin()"
+      >
+        Login
+      </button>
+      <button
+        *ngIf="isLoggedIn && isSeller"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToProducts()"
+      >
+        Your Products
+      </button>
+      <button
+        *ngIf="isLoggedIn && isBuyer"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToOrders()"
+      >
+        Orders
+      </button>
+      <button
+        *ngIf="isLoggedIn && isBuyer"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToNotifications()"
+      >
+        Notifications </button>
+        <button
+        *ngIf="isLoggedIn && isBuyer"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToWishList()"
+      >
+        Wish List </button>
+      <button
+        *ngIf="isLoggedIn && isSeller"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToSellerOrders()"
+      >
+        Seller Orders
+      </button>
+      <button
+        *ngIf="isLoggedIn && isSeller"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToAddProducts()"
+      >
+        Add New Product
+      </button>
+      <button
+        *ngIf="!isLoggedIn"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="navigateToSignUp()"
+      >
+        Become a seller
+      </button>
+      <button
+        *ngIf="isLoggedIn"
+        style="
+          background-color: transparent;
+          border: 0;
+          font-weight: var(--mat-toolbar-title-text-weight);
+          font-family: var(--mat-toolbar-title-text-font);
+        "
+        class="login-link"
+        (click)="logout()"
+      >
+        Log Out
+      </button>
+      <a class="login-link" *ngFor="let menuOption of menuOptions">
+        {{ menuOption }}
+      </a>
+    </div>
+
+    <!-- <div class="menu-button" *ngIf="isSmallScreen">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="navigateToContactUs()">Contact Us</button>
+        <button mat-menu-item (click)="navigateToFaq()">FAQ</button>
+        <button mat-menu-item (click)="navigateToLogin()">Login</button>
+      </mat-menu>
+    </div> -->
+  </mat-toolbar-row>
+</mat-toolbar>

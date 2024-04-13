@@ -1,0 +1,38 @@
+<!-- /* Author: Ubaidullah */ -->
+
+<div class="page-container">
+  <app-header-bar></app-header-bar>
+  <app-category-bar></app-category-bar>
+
+  <div
+    class="order-list-container content-wrap"
+    *ngIf="orders.length; else noOrders"
+  >
+    <div *ngFor="let order of orders" class="order-card">
+      <div class="order-details">
+        <div class="order-info">
+          <span class="info-label">Order ID:</span>
+          <span class="info-value">{{ order.id }}</span>
+        </div>
+        <div class="order-info">
+          <span class="info-label">Product Name:</span>
+          <span class="info-value">{{ order.productName }}</span>
+        </div>
+        <div class="order-info">
+          <span class="info-label">Amount:</span>
+          <span class="info-value">{{ order.amount | currency }}</span>
+        </div>
+        <div class="order-info">
+          <span class="info-label">Status:</span>
+          <span class="info-value">{{ order.status }}</span>
+        </div>
+      </div>
+      <button class="view-btn" (click)="viewOrder(order.id)">View</button>
+    </div>
+  </div>
+  <ng-template #noOrders>
+    <div class="no-orders content-wrap">No orders found.</div>
+  </ng-template>
+
+  <app-footer></app-footer>
+</div>

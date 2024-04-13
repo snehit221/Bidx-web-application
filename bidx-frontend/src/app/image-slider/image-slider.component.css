@@ -1,0 +1,146 @@
+/* @author - KaushikChanabhaiDhola */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  
+  .slide {
+    flex: 0 0 100%;
+    height: 100%;
+    /* background-size: 100% 100%; */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease-in-out;
+    object-fit: cover;
+  }
+  
+  .rightArrow,
+  .leftArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+  }
+  
+  .rightArrow {
+    right: 1rem;
+  }
+  
+  .leftArrow {
+    left: 1rem;
+  }
+  
+  .dotsContainer {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  @media (min-width: 250px) {
+    .slide {
+      flex: 0 0 85%;
+      width: 100%;
+      height: inherit;
+    }
+    .slider{
+      width: 100%;
+      height: 150px;
+    }
+
+  }
+
+  @media (min-width: 300px) {
+    .slide {
+      flex: 0 0 80%;
+      width: 100%;
+      height: inherit;
+    }
+    .slider{
+      width: 100%;
+      height: 160px;
+    }
+
+  }
+
+  @media (min-width: 400px) {
+    .slide {
+      flex: 0 0 70%;
+      width: 100%;
+      height: inherit;
+    }
+    .slider{
+      width: 100%;
+      height: 180px;
+    }
+
+  }
+  
+  @media (min-width: 576px) {
+    .slide {
+      flex: 0 0 60%;
+      width: 100%;
+      height: inherit;
+    }
+    .slider{
+      width: 100%;
+      height: 250px;
+    }
+  }
+  @media (min-width: 768px) {
+    .slide {
+      flex: 0 0 50%; 
+    }
+    .slide {
+      flex: 0 0 50%;
+      width: 100%;
+      height: inherit;
+    }
+    .slider{
+      width: 100%;
+      height: 300px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .slide {
+      flex: 0 0 33.33%;
+      width: 100%;
+      height: inherit;
+    }
+    .slider{
+      width: 100%;
+      height: 400px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .slide {
+      flex: 0 0 20%;
+      width: 100%;
+      height: inherit;
+    }
+    .slider{
+      width: 100%;
+      height: 500px;
+    }
+  }

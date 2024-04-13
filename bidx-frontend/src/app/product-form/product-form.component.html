@@ -1,0 +1,78 @@
+<!-- @author - KaushikChanabhaiDhola -->
+<app-header-bar></app-header-bar>
+<app-category-bar></app-category-bar>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="scroll">
+    <div class="container1" >
+    <h1 class="heading">Sell Your Old Goods Here</h1>
+</div>
+<div class="product-form">
+    <form (ngSubmit)="onSubmit()"  #productForm="ngForm">
+        <div class="input-row">
+            <div class="input-box">
+                <label for="productName" class="details-label">Product Name:</label>
+                <input type="text" id="productName" placeholder="Your Product Name" name="productName" required [(ngModel)]="productData.productName"  >
+            </div>
+        
+            <div class="input-box">
+                <label for="description" class="details-label">Description:</label>
+                <textarea id="Description" id="description" placeholder="Tell us about your product" rows="4" cols="50" required [(ngModel)]="productData.productDesc" name="productDesc"></textarea>
+            </div>
+        </div>
+        <div class="input-row">
+            <div class="input-box">
+                <label for="initialBid" class="details-label">Minimum Bid Value:</label>
+                <input type="number" id="initialBid" placeholder="Expected bid?" required [(ngModel)]="productData.bid" name="bid"  >
+            </div>
+            <div class="input-box">
+                <label for="itemValue" class="details-label">Product Value:</label>
+                <input type="number" id="itemValue" placeholder="Product Value" required [(ngModel)]="productData.itemValue" name="itemValue">
+            </div>
+            <div class="input-box">
+                <label for="product-category" class="details-label">Category:</label>
+                <select name="product-category" id="product-category" required [(ngModel)]="productData.category" name="category" >
+                    <option value="Choose">Choose Category</option>
+                    <option value="Tech">Tech</option>
+                    <option value="Book">Book</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <div class="input-box">
+                <label for="auctionDeadline" class="details-label">Auction Deadline:</label>
+                <input type="datetime-local" id="auctionDeadline" placeholder="Auction Deadline" required [(ngModel)]="productData.auctionDeadline" name="auctionDeadline">
+            </div>
+        </div>
+        
+        <div class="input-row">
+            <div class="input-box">
+                <label for="city" class="details-label">City:</label>
+                <input type="text" id="city" placeholder="City" required [(ngModel)]="productData.city" name="city" >
+            </div>
+            <div class="input-box">
+                <label for="province" class="details-label">Province:</label>
+                <input type="text" id="province" placeholder="Province" required [(ngModel)]="productData.province" name="province" >
+            </div>
+        
+
+        <div class="input-box">
+            <div class="input-box">
+                <label for="fileInput" class="details-label">Show us some images:</label>
+                <input type="file" id="fileInput" name="fileInput" (change)="onFileSelected($event)" #fileInput multiple>
+            </div>
+        </div>
+         </div>
+        
+        <div class="AddButton">
+            <input type="submit" value="Submit">
+        </div>
+
+    </form>
+</div>
+</div>
+<app-footer></app-footer>

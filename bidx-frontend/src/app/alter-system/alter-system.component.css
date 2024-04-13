@@ -1,0 +1,81 @@
+/* @author - KaushikChanabhaiDhola */
+.heading {
+    font-family: "Poppins", sans-serif;
+    color: #1a237e;
+    font-weight: bolder;
+  }
+  
+  .notification-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .notification-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .notification-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  .notification-select {
+    margin-left: 20px;
+    width: 120px;
+  }
+  
+  .notifications {
+    display: grid;
+    grid-gap: 20px;
+  }
+  
+  .notification-item {
+    border: 1px solid #1a237e;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .notification-content {
+    font-size: 16px;
+    
+  }
+  
+  .notification-content p {
+    margin: 5px 0;
+  }
+  
+  .notification-content a {
+    color: #1a237e;
+    text-decoration: underline;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pagination .page-link {
+    color: #1a237e;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #1a237e;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+  
+  .pagination .page-link:hover {
+    background-color: #1a237e;
+    color: white;
+    cursor: pointer !important;
+  }
+  
+  

@@ -1,0 +1,12 @@
+<!-- @author - KaushikChanabhaiDhola -->
+<div class="confirmation-dialog">
+    <h2 mat-dialog-title class="confirmation-dialog-title">{{ data.title }}</h2>
+    <div mat-dialog-content class="confirmation-dialog-message">
+      <p>{{ data.message }}</p>
+    </div>
+    <div mat-dialog-actions class="confirmation-dialog-actions">
+      <button mat-button class="confirmation-dialog-button" (click)="dialogRef.close(false)">Cancel</button>
+      <button mat-button class="confirmation-dialog-button" color="warn" (click)="onYesClick(data.productId)">Delete</button>
+    </div>
+  </div>
+  

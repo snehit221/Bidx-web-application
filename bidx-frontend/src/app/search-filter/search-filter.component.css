@@ -1,0 +1,61 @@
+/* @author - snehitroda */
+
+.filters-container {
+  margin-bottom: 20px;
+}
+
+.filters-heading {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.filters-line {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.filter-options label {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.filter-options label {
+  display: block;
+  margin-bottom: 5px; /* Add margin bottom to create space between radio buttons */
+}
+
+.filters-container {
+  margin-bottom: 20px;
+  max-width: 300px; /* Adjust the value as needed */
+}
+
+.filters-header {
+  display: flex;
+  align-items: center; /* Vertically align the heading and button */
+  justify-content: space-between; /* Distribute space evenly */
+}
+
+.clear-button {
+  background-color: #fff;
+  /* Blue background */
+  color: #1280c9;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+
+.clear-button:hover {
+  background-color: #e0e0e0; /* Adjust as needed */
+}

@@ -1,0 +1,47 @@
+.container {
+    max-width: 600px;
+    height: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-control.invalid {
+    border-color: #dc3545; /* Red border for invalid fields */
+}
+
+.error-message {
+    color: #dc3545; /* Red text for error messages */
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+
+.btn-primary {
+    background-color: #1a237e;
+    border-color: #1a237e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Enhance the hover effect for the primary button */
+.btn-primary:hover {
+    background-color: #3949ab;
+    border-color: #303f9f;
+}

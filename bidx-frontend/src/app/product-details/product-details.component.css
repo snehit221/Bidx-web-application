@@ -1,0 +1,109 @@
+/* @author - snehitroda */
+
+/* Flex container for product */
+.product-container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line */
+}
+
+.btn-primary:first-of-type {
+    margin-right: 10px;  /* Adjust the margin value as per your design needs */
+}
+/* Container for product image */
+.product-image-container {
+    position: relative;
+    flex: 1;
+    margin-bottom: 20px;
+    /* Add some margin between the image and product details */
+}
+
+/* Back button style */
+.back-button {
+    /* top: 25px; */
+    left: 10px;
+    margin-top: 20px;
+    background-color: #fff;
+    /* Blue background */
+    color: #3498db;
+    /* White text */
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+/* Product image style */
+.product-image {
+    margin-top: 10px;
+    max-width: 100%;
+    /* Ensure image doesn't exceed its container */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Product details style */
+.product-details {
+    flex: 2;
+    padding: 10px;
+    margin-left: 50px;
+    /* Add margin between the image and product details */
+}
+
+.btn-primary {
+    background-color: #1a237e;
+    border-color: #1a237e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+/* Preview image style */
+.preview-image img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-left: 10px;
+    /* Add margin from the left */
+    margin-right: 50px;
+    border: 1px solid black;
+    /* Add black border */
+}
+
+/* Footer styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
+/* Media queries for responsiveness */
+
+@media only screen and (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        /* Stack items vertically */
+        align-items: center;
+        /* Center items horizontally */
+    }
+
+    .product-image-container {
+        margin-bottom: 10px;
+        /* Reduce margin between image and details */
+    }
+
+    .back-button {
+        margin-top: 10px;
+        /* Adjust margin for back button */
+    }
+
+    .product-details {
+        margin-left: 0;
+        /* Remove margin between image and details */
+    }
+}

@@ -1,0 +1,98 @@
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+.login-container h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #1a237e;
+  color: white;
+}
+
+.btn-primary:disabled {
+  background-color: #ccc;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .form-control,
+  .btn-primary {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .form-control,
+  .btn-primary {
+    padding: 8px;
+  }
+
+  .login-container h1 {
+    font-size: 1.5rem; /* Smaller font size on very small screens */
+  }
+}
+
+.error {
+  color: #a94442; /* red */
+  background-color: #f2dede; /* light red */
+  border-color: #ebccd1; /* red border */
+  padding: .5rem 1rem;
+  margin-top: .5rem;
+  border: 1px solid transparent; /* Updated for consistency */
+  border-radius: 4px;
+}
+
+.login-message {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}

@@ -1,0 +1,40 @@
+<!-- @author - KaushikChanabhaiDhola -->
+<h2 mat-dialog-title class="heading">Edit Product</h2>
+<div mat-dialog-content>
+  <form #editForm="ngForm" class="edit-product-form">
+    <div class="mat-form-field input-box">
+      <label for="productName" class="details-label">Product Name:</label>
+      <input matInput type="text" id="productName" placeholder="Update Your Product Name" name="productName" [(ngModel)]="productData.name" #productName="ngModel">
+    </div>
+    <div class="mat-form-field input-box">
+      <label for="description" class="details-label">Description:</label>
+      <textarea matInput id="description" placeholder="Update Your Product Description" rows="4" cols="50" required [(ngModel)]="productData.description" name="description" #productDesc="ngModel"></textarea>
+    </div>
+    <div class="mat-form-field input-box">
+      <label for="category" class="details-label">Category:</label>
+      <mat-select matInput id="category" class="category" required [(ngModel)]="productData.category" name="category" #category="ngModel">
+        <mat-option [value]="null" disabled>Select product category</mat-option>
+        <mat-option value="Tech">Tech</mat-option>
+        <mat-option value="Book">Book</mat-option>
+        <mat-option value="Furniture">Furniture</mat-option>
+        <mat-option value="Entertainment">Entertainment</mat-option>
+      </mat-select>
+    </div>
+    <div class="mat-form-field input-box">
+      <label for="productImages" class="details-label">Update Images:</label>
+      <input matInput type="file" id="productImages" name="productImages" accept="image/*" multiple (change)="onImageChange($event)">
+    </div>
+    <div class="image-preview">
+      <div *ngFor="let image of productImages; let i = index" class="preview-item">
+        <img [src]="image.url" alt="Product Image" class="image-thumbnail">
+        <button mat-icon-button color="warn" (click)="removeImage(i)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button class="update-button" (click)="closeDialog()">Cancel</button>
+      <button mat-button class="update-button" color="primary" (click)="submitUpdate()">Submit</button>
+    </div>
+  </form>
+</div>
