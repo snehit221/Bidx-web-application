@@ -5,6 +5,11 @@ Welcome to BidX, your online marketplace for buying and selling second-hand item
 - _Frontend Deployment:_ <https://main--chimerical-squirrel-737257.netlify.app/>
 - _Backend Deployment:_ <https://bidx-backend.onrender.com/>
 
+## ScreenShots of the working web app
+
+![Home Page](bidx-homepage.png)
+
+
 ## Features Developed
 
 Tasks
